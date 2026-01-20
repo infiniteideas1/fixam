@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Fixapathway</title>
+
+    <!-- Google Fonts: Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Pico.css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Custom Style -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="container-fluid" data-aos="fade-down">
+        <ul>
+            <li>
+                <a href="index.html" style="font-size: 1.5rem; font-weight: 800;">
+                    <span style="color:white;">Fixa</span><span style="color:var(--primary-neon);">pathway</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="desktop-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html" role="button" class="contrast">Contact</a></li>
+        </ul>
+        <ul class="mobile-toggle">
+            <li><a href="#" id="mobile-menu-btn"><i class="fas fa-bars"></i></a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container" style="padding-top: 4rem;">
+
+        <hgroup data-aos="fade-up">
+            <h1>Contact Us</h1>
+            <h2>Reach out to our team for immediate assistance.</h2>
+        </hgroup>
+
+        <section>
+            <div class="grid">
+
+                <!-- Contact Info Column -->
+                <div data-aos="fade-right" data-aos-delay="100">
+                    <h3 style="color: var(--primary-neon);">Direct Channels</h3>
+                    <p>For the fastest response, please use our direct messaging channels.</p>
+
+                    <article class="hover-glow-green" style="border-left: 5px solid #25D366;">
+                        <header style="border-bottom: none; padding-bottom: 0; margin-bottom: 0.5rem; color: #25D366;">
+                            <strong>WhatsApp</strong>
+                        </header>
+                        <a href="https://wa.me/14083045187" target="_blank"
+                            style="text-decoration: none; font-size: 1.25rem; color: white;">
+                            <i class="fab fa-whatsapp" style="margin-right: 10px;"></i> +1 (408) 304-5187
+                        </a>
+                    </article>
+
+                    <article class="hover-glow-blue" style="border-left: 5px solid #0088cc;">
+                        <header style="border-bottom: none; padding-bottom: 0; margin-bottom: 0.5rem; color: #0088cc;">
+                            <strong>Telegram</strong>
+                        </header>
+                        <a href="https://t.me/fixapathway" target="_blank"
+                            style="text-decoration: none; font-size: 1.25rem; color: white;">
+                            <i class="fab fa-telegram-plane" style="margin-right: 10px;"></i> @fixapathway
+                        </a>
+                    </article>
+
+                    <article class="hover-glow-red" style="border-left: 5px solid #EA4335;">
+                        <header style="border-bottom: none; padding-bottom: 0; margin-bottom: 0.5rem; color: #EA4335;">
+                            <strong>Email</strong>
+                        </header>
+                        <a href="mailto:fixapathway@gmail.com" target="_blank"
+                            style="text-decoration: none; font-size: 1.25rem; color: white;">
+                            <i class="fas fa-envelope" style="margin-right: 10px;"></i> fixapathway@gmail.com
+                        </a>
+                    </article>
+                </div>
+
+                <!-- Contact Form Column -->
+                <div data-aos="fade-left" data-aos-delay="200">
+                    <h3>Send a Request</h3>
+                    <form
+                        style="background: rgba(255,255,255,0.03); padding: 2rem; border-radius: 20px; border: 1px solid rgba(255,255,255,0.05);">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+                        <label for="service">Service Needed</label>
+                        <select id="service" name="service" required>
+                            <option value="" selected>Select a Service</option>
+                            <option value="recovery">Account Recovery</option>
+                            <option value="audit">Security Audit</option>
+                            <option value="other">Other</option>
+                        </select>
+
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Describe your issue..."
+                            style="height: 150px;" required></textarea>
+
+                        <button type="submit" class="btn-glow">Submit Request</button>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="container" style="margin-top: 4rem; text-align: center; color: var(--text-muted);"
+        data-aos="fade-up">
+        <small>
+            &copy; 2026 Fixapathway. All rights reserved.<br>
+            <a href="privacy.html" style="color: var(--text-muted);">Privacy Policy</a> • <a href="terms.html"
+                style="color: var(--text-muted);">Terms of Service</a>
+        </small>
+    </footer>
+
+    <!-- Floating Action Button -->
+    <div class="fab-container">
+        <div class="fab-options">
+            <div class="fab-item">
+                <span class="fab-label">WhatsApp</span>
+                <a href="https://wa.me/14083045187" target="_blank" class="fab-btn bg-whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </div>
+            <div class="fab-item">
+                <span class="fab-label">Telegram</span>
+                <a href="https://t.me/fixapathway" target="_blank" class="fab-btn bg-telegram">
+                    <i class="fab fa-telegram-plane"></i>
+                </a>
+            </div>
+            <div class="fab-item">
+                <span class="fab-label">Email</span>
+                <a href="mailto:fixapathway@gmail.com" target="_blank" class="fab-btn bg-email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+            </div>
+        </div>
+        <button id="fab-main" class="fab-main">
+            <i class="fas fa-comment-dots"></i>
+        </button>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobile-menu">
+        <button id="close-menu-btn" class="close-menu-btn"><i class="fas fa-times"></i></button>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- AOS Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
