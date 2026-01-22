@@ -51,11 +51,13 @@
 
         <div class="hero-content">
             <span class="badge-pill" data-aos="zoom-in" data-aos-delay="200">World Class Security</span>
-            <h1 data-aos="fade-up" data-aos-delay="400">Regain Control of Your <br>Digital Identity</h1>
-            <p data-aos="fade-up" data-aos-delay="600" style="font-size: 1.25rem;">
-                Elite social media account recovery and cybersecurity solutions. <br>
-                Fast. Confidential. Guaranteed.
-            </p>
+            <h1 data-aos="fade-up" data-aos-delay="400">Regain Control of Your Digital Identity</h1>
+            <div class="hero-desc-container" data-aos="fade-up" data-aos-delay="600">
+                <p class="hero-desc-glass">
+                    Elite social media account recovery and cybersecurity solutions. <br>
+                    <strong>Fast. Confidential. Guaranteed.</strong>
+                </p>
+            </div>
             <br>
             <div data-aos="fade-up" data-aos-delay="800">
                 <a href="contact.html" role="button" class="btn-glow" style="padding: 1rem 3rem; border-radius: 50px;">
@@ -119,19 +121,24 @@
             </div>
         </section>
 
-        <section>
-            <div class="grid" style="align-items: center;">
-                <div data-aos="fade-right">
-                    <h2>Expertise Across All Platforms</h2>
+        <section style="text-align: center;">
+            <div data-aos="fade-up">
+                <h2>Expertise Across All Platforms</h2>
+                <div style="max-width: 700px; margin: 0 auto;">
                     <p>Whether it's a hacked Instagram, a locked Facebook, or a suspended Twitter account, we have the
                         direct lines and technical know-how to fix it.</p>
-                    <a href="services.html" role="button" class="outline"
-                        style="border-color: var(--primary-neon); color: var(--primary-neon);">View Services</a>
                 </div>
-                <div style="text-align: center;" data-aos="fade-left">
-                    <i class="fab fa-instagram fa-4x" style="margin: 1rem; color: #E1306C;"></i>
-                    <i class="fab fa-facebook fa-4x" style="margin: 1rem; color: #1877F2;"></i>
-                    <i class="fab fa-twitter fa-4x" style="margin: 1rem; color: #1DA1F2;"></i>
+
+                <div class="platform-icons" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fab fa-instagram" style="color: #E1306C;"></i>
+                    <i class="fab fa-facebook" style="color: #1877F2;"></i>
+                    <i class="fab fa-twitter" style="color: #1DA1F2;"></i>
+                    <i class="fab fa-telegram" style="color: #0088cc;"></i>
+                </div>
+
+                <div style="margin-top: 2rem;">
+                    <a href="services.html" role="button" class="outline"
+                        style="border-color: var(--primary-neon); color: var(--primary-neon);">View All Services</a>
                 </div>
             </div>
         </section>
@@ -186,7 +193,13 @@
         </ul>
     </div>
 
+    <!-- Scroll to Top Button -->
+    <button id="scroll-to-top" class="scroll-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <!-- AOS Script -->
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
 </body>

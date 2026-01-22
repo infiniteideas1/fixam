@@ -74,4 +74,23 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.style.overflow = 'auto'; // Restore scroll
     });
   }
+  // Scroll to Top Logic
+  const scrollTopBtn = document.getElementById('scroll-to-top');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      scrollTopBtn.classList.add('visible');
+    } else {
+      scrollTopBtn.classList.remove('visible');
+    }
+  });
+
+  if (scrollTopBtn) {
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
 });
+
