@@ -663,16 +663,16 @@ article i {
                 transparent 70%);
     }
 
-    /* Significantly darkened overlay for robot side */
+    /* Balanced darkening for robot side (slightly lighter) */
     .hero-overlay {
         background:
             radial-gradient(circle at 30% 50%,
-                rgba(5, 5, 17, 0.92) 0%,
-                /* Significantly darkened robot center */
-                rgba(5, 5, 17, 0.95) 40%,
-                /* Extended darkness reach */
-                rgba(5, 5, 17, 0.98) 70%,
-                /* Near-total blackout on edges */
+                rgba(5, 5, 17, 0.85) 0%,
+                /* Lighter robot visibility: 85% opacity */
+                rgba(5, 5, 17, 0.90) 40%,
+                /* Gradient transition: 90% opacity */
+                rgba(5, 5, 17, 0.96) 70%,
+                /* Edge feathering: 96% opacity */
                 var(--bg-dark) 100%),
             linear-gradient(to bottom, transparent 75%, var(--bg-dark) 100%);
     }
