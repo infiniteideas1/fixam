@@ -614,10 +614,9 @@ article i {
 }
 
 /* Responsive Tweaks */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     h1 {
         font-size: 1.75rem;
-        /* Reduced from 2rem */
     }
 
     nav {
@@ -628,20 +627,16 @@ article i {
         backdrop-filter: blur(20px);
     }
 
-    /* Hide desktop links on mobile */
     .desktop-links {
         display: none;
     }
 
-    /* Mobile Toggle */
     .mobile-toggle {
         display: block !important;
     }
 
-    /* Fix Hero BG on mobile */
     .hero {
         min-height: 70vh;
-        /* Ensure hero section has height */
     }
 
     .hero-bg-img {
@@ -652,34 +647,33 @@ article i {
         min-height: 70vh;
         will-change: auto;
 
-        /* Mobile-Aligned 4-Corner Mask (30% position) */
-        -webkit-mask-image: radial-gradient(circle at 30% 50%, black 25%, transparent 95%);
-        mask-image: radial-gradient(circle at 30% 50%, black 25%, transparent 95%);
+        -webkit-mask-image: radial-gradient(circle at 30% 50%, black 20%, transparent 95%);
+        mask-image: radial-gradient(circle at 30% 50%, black 20%, transparent 95%);
     }
 
-    /* Circular spotlight on mobile - smaller and centered on robot */
+    /* Better balanced darkness for robot side */
     .hero-bg-img::before {
         width: 300px;
         height: 300px;
         left: 30%;
         background: radial-gradient(circle,
-                rgba(255, 255, 255, 0.45) 0%,
-                rgba(0, 243, 255, 0.3) 20%,
-                rgba(188, 19, 254, 0.15) 40%,
+                rgba(255, 255, 255, 0.35) 0%,
+                rgba(0, 243, 255, 0.2) 20%,
+                rgba(188, 19, 254, 0.12) 40%,
                 transparent 70%);
     }
 
-    /* Mobile-Aligned Blending Overlay */
     .hero-overlay {
         background:
             radial-gradient(circle at 30% 50%,
-                transparent 0%,
-                transparent 25%,
-                /* Reduced transparent area */
-                rgba(5, 5, 17, 0.85) 65%,
-                /* Darkened the surrounding area */
+                rgba(5, 5, 17, 0.75) 0%,
+                /* Balanced transparency */
+                rgba(5, 5, 17, 0.85) 35%,
+                /* Gradual transition */
+                rgba(5, 5, 17, 0.95) 65%,
+                /* Stronger vignetting on outer edges */
                 var(--bg-dark) 100%),
-            linear-gradient(to bottom, transparent 80%, var(--bg-dark) 100%);
+            linear-gradient(to bottom, transparent 75%, var(--bg-dark) 100%);
     }
 
     /* Mobile FAB Size Reductions */
