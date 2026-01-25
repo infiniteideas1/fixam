@@ -9,6 +9,43 @@ document.addEventListener('DOMContentLoaded', () => {
         offset: 120
     });
 
+    // Numerical Counter Animation Logic
+    const counters = document.querySelectorAll('.counter');
+    const counterObserverOptions = {
+        threshold: 1,
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+    const counterObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counter = entry.target;
+                const target = +counter.getAttribute('data-target');
+                const duration = 2000; // 2 seconds animation
+                const startTime = performance.now();
+
+                function updateCounter(currentTime) {
+                    const elapsedTime = currentTime - startTime;
+                    const progress = Math.min(elapsedTime / duration, 1);
+                    const currentValue = Math.floor(progress * target);
+
+                    counter.innerText = currentValue;
+
+                    if (progress < 1) {
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counter.innerText = target;
+                    }
+                }
+
+                requestAnimationFrame(updateCounter);
+                observer.unobserve(counter); // Only animate once
+            }
+        });
+    }, counterObserverOptions);
+
+    counters.forEach(counter => counterObserver.observe(counter));
+
     // FAB Toggle Logic
     const fabMain = document.getElementById('fab-main');
     const fabContainer = document.querySelector('.fab-container');
@@ -44,15 +81,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Scroll Navbar Effect
     const nav = document.querySelector('nav');
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            nav.style.background = 'rgba(5, 5, 17, 0.9)';
-            nav.style.boxShadow = '0 10px 30px rgba(0,0,0,0.5)';
-        } else {
-            nav.style.background = 'rgba(15, 16, 33, 0.6)';
-            nav.style.boxShadow = '0 10px 40px rgba(0,0,0,0.3)';
+    const isInternalNav = nav.classList.contains('internal-nav');
+
+    function updateNav() {
+        // We only toggle transparency for pages that are NOT marked internal-nav (like index.html)
+        if (!isInternalNav) {
+            if (window.scrollY > 50) {
+                nav.style.background = 'var(--midnight-blue)';
+                nav.style.borderBottom = '2px solid var(--primary-red)';
+                nav.style.position = 'fixed';
+            } else {
+                nav.style.background = 'transparent';
+                nav.style.borderBottom = 'none';
+                nav.style.position = 'absolute';
+            }
         }
-    });
+    }
+
+    window.addEventListener('scroll', updateNav);
+    updateNav(); // Initial check
 
     // Mobile Menu Logic
     const mobileBtn = document.getElementById('mobile-menu-btn');
@@ -93,19 +140,76 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    /* Typewriter Effect with Rotating Tips */
+    const typewriterElement = document.getElementById('typewriter-text');
+    if (typewriterElement) {
+        const tips = [
+            "Enable Two-Factor Authentication (2FA) on all accounts.",
+            "Use strong, unique passwords for every platform.",
+            "Be wary of unsolicited 'password reset' emails.",
+            "Review your active login sessions regularly.",
+            "Avoid clicking suspicious links in DMs.",
+            "Set your social media profiles to private.",
+            "Update your recovery email and phone number.",
+            "Never share your OTP codes with anyone.",
+            "Revoke access for unused third-party apps.",
+            "Backup your important data and chats frequently."
+        ];
+
+        // Initialize
+        typewriterElement.innerHTML = ''; // Use innerHTML to clear
+        const cursor = document.createElement('span');
+        cursor.className = 'typewriter-cursor';
+        typewriterElement.appendChild(cursor);
+
+        let tipIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typeSpeed = 50;
+
+        function type() {
+            const currentTip = tips[tipIndex];
+
+            // Safe substring logic
+            if (isDeleting) {
+                charIndex = Math.max(0, charIndex - 1);
+            } else {
+                charIndex = Math.min(currentTip.length, charIndex + 1);
+            }
+
+            const displayedText = currentTip.substring(0, charIndex);
+            typewriterElement.textContent = displayedText;
+            typewriterElement.appendChild(cursor); // Re-append cursor
+
+            if (!isDeleting && charIndex === currentTip.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                tipIndex = (tipIndex + 1) % tips.length;
+                typeSpeed = 500;
+            } else {
+                typeSpeed = isDeleting ? 30 : 50;
+            }
+
+            setTimeout(type, typeSpeed);
+        }
+
+        type(); // Start immediately
+    }
+
     /* Initialize Particles.js */
     if (document.getElementById('particles-js')) {
         const isMobile = window.innerWidth <= 768;
         particlesJS("particles-js", {
             "particles": {
                 "number": {
-                    "value": isMobile ? 40 : 100,
+                    "value": isMobile ? 30 : 80,
                     "density": {
                         "enable": true,
                         "value_area": 800
                     }
                 },
-
                 "color": {
                     "value": "#ffffff"
                 },
@@ -117,17 +221,17 @@ document.addEventListener('DOMContentLoaded', () => {
                     }
                 },
                 "opacity": {
-                    "value": 0.3,
+                    "value": 0.5,
                     "random": true,
                     "anim": {
                         "enable": true,
                         "speed": 1,
-                        "opacity_min": 0.1,
+                        "opacity_min": 0.2,
                         "sync": false
                     }
                 },
                 "size": {
-                    "value": 2,
+                    "value": 3,
                     "random": true,
                     "anim": {
                         "enable": false,
@@ -140,7 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "enable": true,
                     "distance": 150,
                     "color": "#ffffff",
-                    "opacity": 0.15,
+                    "opacity": 0.3,
                     "width": 1
                 },
                 "move": {
@@ -172,9 +276,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
                 "modes": {
                     "grab": {
-                        "distance": 200,
+                        "distance": 140,
                         "line_linked": {
-                            "opacity": 0.35
+                            "opacity": 0.5
                         }
                     }
                 }
@@ -183,5 +287,3 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
-
-

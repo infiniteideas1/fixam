@@ -25,15 +25,16 @@
 <body>
 
     <!-- Navigation -->
-    <nav class="container-fluid" data-aos="fade-down">
+    <nav class="container-fluid internal-nav" data-aos="fade-down">
         <ul>
             <li>
-                <a href="/" style="font-size: 1.5rem; font-weight: 800;">
-                    <span style="color:white;">Fixa</span><span style="color:var(--primary-neon);">pathway</span>
+                <a href="/" style="font-size: 1.5rem; font-weight: 800; text-decoration: none;">
+                    <span style="color: var(--primary-red);">Fixa</span><span
+                        style="color: var(--pure-white);">pathway</span>
                 </a>
             </li>
         </ul>
-        <ul class="desktop-links">
+        <ul class="desktop-links internal-links">
             <li><a href="/">Home</a></li>
             <li><a href="services">Services</a></li>
             <li><a href="about" class="contrast">About</a></li>
@@ -44,54 +45,205 @@
         </ul>
     </nav>
 
+    <header style="padding: 150px 1.5rem 2rem; text-align: center; background: transparent;">
+        <h2 data-aos="fade-up"
+            style="color: var(--midnight-blue); border: none; padding: 0; margin: 0; font-weight: 800;">
+            About Fixapathway</h2>
+        <p data-aos="fade-up" data-aos-delay="100"
+            style="color: var(--text-main); margin: 0.5rem 0 0; line-height: 1.4;">Your trusted
+            partner in digital forensics and premium security restoration.</p>
+    </header>
+
     <!-- Main Content -->
-    <main class="container" style="padding-top: 4rem;">
-        <hgroup data-aos="fade-up" style="text-align: center; margin-bottom: 4rem;">
-            <h1>About Fixapathway</h1>
-            <h2 style="color: var(--text-muted);">Your trusted partner in digital security.</h2>
-        </hgroup>
+    <main class="container" style="padding-top: 0;">
 
-        <section data-aos="fade-up" data-aos-delay="100">
-            <h3 style="color: var(--primary-neon);">Our Mission</h3>
-            <p style="color: white;">At Fixapathway, we understand the distress of losing your digital identity. In an
-                era where social media
-                is an extension of ourselves, security breaches feel personal. Our mission is to restore that access and
-                peace of mind efficiently and securely.</p>
+        <!-- Mission & Values Cards -->
+        <section style="padding: 2rem 0;">
+            <div class="grid">
+                <!-- Our Mission Card -->
+                <article data-aos="fade-right" data-aos-delay="200"
+                    style="max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; height: 100%; text-align: center; padding: 1.5rem; justify-content: center;">
+                    <header style="border-bottom: none; margin-bottom: 0; padding-bottom: 0.5rem;">
+                        <i class="fas fa-bullseye fa-2x" style="color: var(--primary-red);"></i>
+                    </header>
+                    <h3 style="color: var(--midnight-blue); font-weight: 700; margin-bottom: 0.5rem;">
+                        Our Mission</h3>
+                    <p style="color: var(--text-main); line-height: 1.5;">At Fixapathway, we restore
+                        your digital identity. In an era where security breaches feel personal, our mission is to
+                        efficiently secure and regain your access, bringing you peace of mind.</p>
+                </article>
+
+                <!-- Who We Are Card -->
+                <article data-aos="fade-left" data-aos-delay="400"
+                    style="max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; height: 100%; text-align: center; padding: 1.5rem; justify-content: center;">
+                    <header style="border-bottom: none; margin-bottom: 0; padding-bottom: 0.5rem;">
+                        <i class="fas fa-users-cog fa-2x" style="color: var(--primary-red);"></i>
+                    </header>
+                    <h3 style="color: var(--midnight-blue); font-weight: 700; margin-bottom: 0.5rem;">
+                        Who We Are</h3>
+                    <p style="color: var(--text-main); line-height: 1.5;">We are ethical hackers and
+                        cybersecurity experts specializing in platform recovery protocols. We navigate complex tech
+                        support systems so you don't have to, bridging the gap to your digital assets.</p>
+                </article>
+            </div>
         </section>
 
-        <section data-aos="fade-up" data-aos-delay="200">
-            <h3 style="color: var(--secondary-neon);">Who We Are</h3>
-            <p style="color: white;">We are a team of ethical hackers and cybersecurity experts with years of experience
-                in platform recovery
-                protocols. We navigate the complex support systems of major tech giants so you don't have to.</p>
+        <!-- Stats Grid with Glassmorphism -->
+        <section style="margin-top: 4rem; margin-bottom: 2rem;">
+            <div style="text-align: center; margin-bottom: 3rem;">
+                <hgroup data-aos="fade-up">
+                    <h2 style="border:none; margin:0;">Our Impact</h2>
+                    <h3 style="color: var(--text-main);">Numerical evidence of our forensic excellence.</h3>
+                </hgroup>
+            </div>
+
+            <div class="grid">
+                <article data-aos="zoom-in" data-aos-delay="100"
+                    style="text-align: center; border-bottom: 4px solid var(--primary-red);">
+                    <i class="fas fa-history fa-3x" style="margin-bottom: 1.5rem; color: var(--primary-red);"></i>
+                    <h4 style="color: var(--midnight-blue); font-size: 2rem; margin-bottom: 0.5rem;"><span
+                            class="counter" data-target="5">0</span>+ Years</h4>
+                    <p style="font-weight: 500;">Digital Forensics Experience</p>
+                </article>
+
+                <article data-aos="zoom-in" data-aos-delay="300"
+                    style="text-align: center; border-bottom: 4px solid var(--primary-red);">
+                    <i class="fas fa-chart-line fa-3x" style="margin-bottom: 1.5rem; color: var(--primary-red);"></i>
+                    <h4 style="color: var(--midnight-blue); font-size: 2rem; margin-bottom: 0.5rem;"><span
+                            class="counter" data-target="98">0</span>%</h4>
+                    <p style="font-weight: 500;">Success Recovery Rate</p>
+                </article>
+
+                <article data-aos="zoom-in" data-aos-delay="500"
+                    style="text-align: center; border-bottom: 4px solid var(--primary-red);">
+                    <i class="fas fa-headset fa-3x" style="margin-bottom: 1.5rem; color: var(--primary-red);"></i>
+                    <h4 style="color: var(--midnight-blue); font-size: 2rem; margin-bottom: 0.5rem;"><span
+                            class="counter" data-target="24">0</span>/7</h4>
+                    <p style="font-weight: 500;">Global Expert Support</p>
+                </article>
+            </div>
         </section>
 
-        <div class="grid">
-            <article data-aos="zoom-in" data-aos-delay="300" style="text-align: center;">
-                <h4 style="color: var(--primary-neon);">Experience</h4>
-                <i class="fas fa-history fa-2x" style="margin-bottom: 1rem; color: var(--primary-neon);"></i><br>
-                5+ Years in Digital Forensics
-            </article>
-            <article data-aos="zoom-in" data-aos-delay="400" style="text-align: center;">
-                <h4 style="color: var(--secondary-neon);">Success</h4>
-                <i class="fas fa-chart-line fa-2x" style="margin-bottom: 1rem; color: var(--secondary-neon);"></i><br>
-                98% Recovery Rate
-            </article>
-            <article data-aos="zoom-in" data-aos-delay="500" style="text-align: center;">
-                <h4 style="color: var(--accent-green);">Support</h4>
-                <i class="fas fa-headset fa-2x" style="margin-bottom: 1rem; color: var(--accent-green);"></i><br>
-                24/7 Availability
-            </article>
-        </div>
+        <!-- Core Values Section -->
+        <section style="margin-top: 1rem; margin-bottom: 6rem;">
+            <div style="text-align: center; margin-bottom: 1.5rem;" data-aos="fade-up">
+                <hgroup>
+                    <h2 style="border:none; margin:0;">Our Core Values</h2>
+                    <h3 style="color: var(--text-main);">The pillars that define Fixapathway's operation.</h3>
+                </hgroup>
+            </div>
+
+            <div class="grid">
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <article
+                        style="background: rgba(255, 255, 255, 0.6) !important; text-align: center; padding: 1.5rem;">
+                        <div style="margin-bottom: 0.5rem;">
+                            <i class="fas fa-user-shield fa-2x" style="color: var(--primary-red);"></i>
+                        </div>
+                        <h4 style="color: var(--midnight-blue); margin-bottom: 0.5rem;">Confidentiality</h4>
+                        <p>Your privacy is our utmost priority. Every recovery case is
+                            handled with strict NDAs and data
+                            encryption.</p>
+                    </article>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <article
+                        style="background: rgba(255, 255, 255, 0.6) !important; text-align: center; padding: 1.5rem;">
+                        <div style="margin-bottom: 0.5rem;">
+                            <i class="fas fa-handshake fa-2x" style="color: var(--primary-red);"></i>
+                        </div>
+                        <h4 style="color: var(--midnight-blue); margin-bottom: 0.5rem;">Integrity</h4>
+                        <p>We operate with transparency and ethical standards, ensuring you
+                            are updated at every stage
+                            of the process.</p>
+                    </article>
+                </div>
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <article
+                        style="background: rgba(255, 255, 255, 0.6) !important; text-align: center; padding: 1.5rem;">
+                        <div style="margin-bottom: 0.5rem;">
+                            <i class="fas fa-microchip fa-2x" style="color: var(--primary-red);"></i>
+                        </div>
+                        <h4 style="color: var(--midnight-blue); margin-bottom: 0.5rem;">Innovation</h4>
+                        <p>Constantly evolving our recovery tools to match the latest
+                            security updates from major social
+                            platforms.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Meet Our Team -->
+        <section style="margin-top: 1rem; margin-bottom: 8rem;">
+            <div style="text-align: center; margin-bottom: 3rem;" data-aos="fade-up">
+                <hgroup>
+                    <h2 style="border:none; margin:0;">Meet Our Team</h2>
+                    <h3 style="color: var(--text-main);">The experts behind your digital security.</h3>
+                </hgroup>
+            </div>
+
+            <div class="grid">
+                <!-- Member 1 -->
+                <div data-aos="fade-up" data-aos-delay="100">
+                    <article
+                        style="max-width: 400px; margin: 0 auto; background: rgba(255, 255, 255, 0.6) !important; text-align: center; padding: 1.5rem; overflow: hidden; height: 100%;">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Michael Sterling"
+                            style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem; border: 3px solid var(--primary-red);">
+                        <h4 style="color: var(--midnight-blue); margin-bottom: 0.5rem;">Michael
+                            Sterling
+                        </h4>
+                        <p style="color: var(--primary-red); font-weight: 700; margin-bottom: 0.5rem;">
+                            Lead
+                            Forensic Analyst</p>
+                        <p style="color: var(--text-main);">10+ years identifying sophisticated
+                            phishing attacks and recovering compromised assets.</p>
+                    </article>
+                </div>
+
+                <!-- Member 2 -->
+                <div data-aos="fade-up" data-aos-delay="200">
+                    <article
+                        style="max-width: 400px; margin: 0 auto; background: rgba(255, 255, 255, 0.6) !important; text-align: center; padding: 1.5rem; overflow: hidden; height: 100%;">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah Jenkins"
+                            style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem; border: 3px solid var(--primary-red);">
+                        <h4 style="color: var(--midnight-blue); margin-bottom: 0.5rem;">Sarah
+                            Jenkins</h4>
+                        <p style="color: var(--primary-red); font-weight: 700; margin-bottom: 0.5rem;">
+                            Senior
+                            Recovery Strategist</p>
+                        <p style="color: var(--text-main);">Specializes in navigating complex
+                            platform
+                            support channels to expedite account restoration.</p>
+                    </article>
+                </div>
+
+                <!-- Member 3 -->
+                <div data-aos="fade-up" data-aos-delay="300">
+                    <article
+                        style="max-width: 400px; margin: 0 auto; background: rgba(255, 255, 255, 0.6) !important; text-align: center; padding: 1.5rem; overflow: hidden; height: 100%;">
+                        <img src="https://randomuser.me/api/portraits/men/85.jpg" alt="David Ross"
+                            style="width: 120px; height: 120px; border-radius: 50%; object-fit: cover; margin-bottom: 1rem; border: 3px solid var(--primary-red);">
+                        <h4 style="color: var(--midnight-blue); margin-bottom: 0.5rem;">David Ross
+                        </h4>
+                        <p style="color: var(--primary-red); font-weight: 700; margin-bottom: 0.5rem;">
+                            Head of
+                            Security Ops</p>
+                        <p style="color: var(--text-main);">Expert ethical hacker ensuring that once
+                            access is regained, it stays secure forever.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+
 
     </main>
 
     <!-- Footer -->
-    <footer class="container" style="margin-top: 4rem; text-align: center; color: var(--text-muted);">
+    <footer class="container-fluid" style="text-align: center;">
         <small>
             &copy; 2026 Fixapathway. All rights reserved.<br>
-            <a href="privacy" style="color: var(--text-muted);">Privacy Policy</a> • <a href="terms"
-                style="color: var(--text-muted);">Terms of Service</a>
+            <a href="privacy">Privacy Policy</a> • <a href="terms">Terms of Service</a>
         </small>
     </footer>
 
