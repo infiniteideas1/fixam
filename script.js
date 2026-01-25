@@ -2,14 +2,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Initialize AOS with mobile-optimized settings
     const isMobile = window.innerWidth <= 1024;
-    AOS.init({
-        duration: isMobile ? 400 : 1000,
-        easing: isMobile ? 'ease-out' : 'ease-out-cubic',
-        once: true,
-        mirror: false,
-        offset: isMobile ? 50 : 120,
-        delay: 0
-    });
+    // AOS Disabled as per user request
+
+    // AOS.init({...});
 
     // Numerical Counter Animation Logic
     const counters = document.querySelectorAll('.counter');
@@ -23,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (entry.isIntersecting) {
                 const counter = entry.target;
                 const target = +counter.getAttribute('data-target');
-                const duration = 2000; // 2 seconds animation
+                const duration = 0; // Instant
                 const startTime = performance.now();
 
                 function updateCounter(currentTime) {
@@ -34,7 +29,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     counter.innerText = currentValue;
 
                     if (progress < 1) {
-                        requestAnimationFrame(updateCounter);
+                        // requestAnimationFrame(updateCounter);
+                        counter.innerText = target;
                     } else {
                         counter.innerText = target;
                     }
@@ -81,27 +77,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Scroll Navbar Effect
-    const nav = document.querySelector('nav');
-    const isInternalNav = nav.classList.contains('internal-nav');
-
-    function updateNav() {
-        // We only toggle transparency for pages that are NOT marked internal-nav (like index.html)
-        if (!isInternalNav) {
-            if (window.scrollY > 50) {
-                nav.style.background = 'var(--midnight-blue)';
-                nav.style.borderBottom = '2px solid var(--primary-red)';
-                nav.style.position = 'fixed';
-            } else {
-                nav.style.background = 'transparent';
-                nav.style.borderBottom = 'none';
-                nav.style.position = 'absolute';
-            }
-        }
-    }
-
-    window.addEventListener('scroll', updateNav);
-    updateNav(); // Initial check
+    // Scroll Navbar Effect - REMOVED
+    // window.addEventListener('scroll', updateNav);
+    // updateNav(); // Initial check
 
     // Mobile Menu Logic
     const mobileBtn = document.getElementById('mobile-menu-btn');
@@ -137,83 +115,27 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollTopBtn.addEventListener('click', () => {
             window.scrollTo({
                 top: 0,
-                behavior: 'smooth'
+                // behavior: 'smooth' - Removed smooth scroll
             });
         });
     }
 
-    /* Typewriter Effect with Rotating Tips */
-    const typewriterElement = document.getElementById('typewriter-text');
-    if (typewriterElement) {
-        const tips = [
-            "Enable Two-Factor Authentication (2FA) on all accounts.",
-            "Use strong, unique passwords for every platform.",
-            "Be wary of unsolicited 'password reset' emails.",
-            "Review your active login sessions regularly.",
-            "Avoid clicking suspicious links in DMs.",
-            "Set your social media profiles to private.",
-            "Update your recovery email and phone number.",
-            "Never share your OTP codes with anyone.",
-            "Revoke access for unused third-party apps.",
-            "Backup your important data and chats frequently."
-        ];
 
-        // Initialize
-        typewriterElement.innerHTML = ''; // Use innerHTML to clear
-        const cursor = document.createElement('span');
-        cursor.className = 'typewriter-cursor';
-        typewriterElement.appendChild(cursor);
-
-        let tipIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        let typeSpeed = 50;
-
-        function type() {
-            const currentTip = tips[tipIndex];
-
-            // Safe substring logic
-            if (isDeleting) {
-                charIndex = Math.max(0, charIndex - 1);
-            } else {
-                charIndex = Math.min(currentTip.length, charIndex + 1);
-            }
-
-            const displayedText = currentTip.substring(0, charIndex);
-            typewriterElement.textContent = displayedText;
-            typewriterElement.appendChild(cursor); // Re-append cursor
-
-            if (!isDeleting && charIndex === currentTip.length) {
-                typeSpeed = 2000;
-                isDeleting = true;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                tipIndex = (tipIndex + 1) % tips.length;
-                typeSpeed = 500;
-            } else {
-                typeSpeed = isDeleting ? 30 : 50;
-            }
-
-            setTimeout(type, typeSpeed);
-        }
-
-        type(); // Start immediately
-    }
 
     /* Initialize Particles.js */
-    if (document.getElementById('particles-js')) {
-        const isMobile = window.innerWidth <= 768;
-        particlesJS("particles-js", {
+    const particlesContainer = document.getElementById('particles-js');
+    if (particlesContainer && typeof particlesJS !== 'undefined') {
+        particlesJS('particles-js', {
             "particles": {
                 "number": {
-                    "value": isMobile ? 30 : 80,
+                    "value": 80,
                     "density": {
                         "enable": true,
                         "value_area": 800
                     }
                 },
                 "color": {
-                    "value": "#ffffff"
+                    "value": "#FFFFFF"
                 },
                 "shape": {
                     "type": "circle",
@@ -224,11 +146,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 },
                 "opacity": {
                     "value": 0.5,
-                    "random": true,
+                    "random": false,
                     "anim": {
-                        "enable": true,
+                        "enable": false,
                         "speed": 1,
-                        "opacity_min": 0.2,
+                        "opacity_min": 0.1,
                         "sync": false
                     }
                 },
@@ -237,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "random": true,
                     "anim": {
                         "enable": false,
-                        "speed": 4,
+                        "speed": 40,
                         "size_min": 0.1,
                         "sync": false
                     }
@@ -245,13 +167,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 "line_linked": {
                     "enable": true,
                     "distance": 150,
-                    "color": "#ffffff",
-                    "opacity": 0.3,
+                    "color": "#FFFFFF",
+                    "opacity": 0.4,
                     "width": 1
                 },
                 "move": {
                     "enable": true,
-                    "speed": 1.5,
+                    "speed": 6,
                     "direction": "none",
                     "random": false,
                     "straight": false,
@@ -272,7 +194,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         "mode": "grab"
                     },
                     "onclick": {
-                        "enable": false
+                        "enable": true,
+                        "mode": "push"
                     },
                     "resize": true
                 },
@@ -280,12 +203,30 @@ document.addEventListener('DOMContentLoaded', () => {
                     "grab": {
                         "distance": 140,
                         "line_linked": {
-                            "opacity": 0.5
+                            "opacity": 1
                         }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
                     }
                 }
             },
             "retina_detect": true
         });
+        particlesContainer.style.display = 'block';
     }
 });

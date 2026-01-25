@@ -7,30 +7,34 @@
 
 :root {
     /* 
-       Strict 3-Color Palette (Light Theme):
-       - Red: #E53935 (Actions/Buttons/Highlights)
+       Strict 3-Color Palette (Blue/Black/White):
+       - Blue: #0044CC (Actions/Buttons/Highlights)
        - Midnight Blue: #000B33 (Typography/Accents)
-       - Background Shade: #E5EAF5 (Requested Background)
-       - White: #FFFFFF (Cards/Components)
+       - White: #FFFFFF (Background/Cards)
     */
-    --primary-red: #E53935;
-    --midnight-blue: #000B33;
+    /* 
+       Strict 2-Color Palette (White and Navy Blue Only):
+       - Navy Blue: #002060 (Primary/Text/Actions)
+       - White: #FFFFFF (Background/Contrast)
+    */
+    --primary-blue: #002060;
+    --midnight-blue: #002060;
     --pure-white: #FFFFFF;
-    --bg-main: #E5EAF5;
+    --bg-main: #FFFFFF;
 
     --bg-gradient: var(--bg-main);
 
-    --text-main: var(--midnight-blue);
+    --text-main: var(--primary-blue);
     --text-light: var(--pure-white);
-    --text-dim: rgba(0, 11, 51, 0.7);
+    --text-dim: var(--primary-blue);
 
     /* Pico Overrides */
     --pico-background-color: transparent;
     --pico-card-background-color: var(--pure-white);
     --pico-color: var(--text-main);
-    --pico-primary: var(--primary-red);
-    --pico-primary-background: var(--primary-red);
-    --pico-primary-hover: #b71c1c;
+    --pico-primary: var(--primary-blue);
+    --pico-primary-background: var(--primary-blue);
+    --pico-primary-hover: var(--primary-blue);
     --pico-border-radius: 8px;
     --pico-font-family: 'Outfit', sans-serif;
 
@@ -39,12 +43,12 @@
     --btn-padding-x: 1.8rem;
     --btn-font-size: 0.95rem;
 
-    /* Form Input Colors (Clean Light Inputs) */
+    /* Form Input Colors */
     --pico-form-element-background-color: #FFFFFF;
-    --pico-form-element-border-color: #ccc;
-    --pico-form-element-color: var(--midnight-blue);
-    --pico-form-element-placeholder-color: #777;
-    --pico-form-element-focus-color: var(--primary-red);
+    --pico-form-element-border-color: var(--primary-blue);
+    --pico-form-element-color: var(--primary-blue);
+    --pico-form-element-placeholder-color: var(--primary-blue);
+    --pico-form-element-focus-color: var(--primary-blue);
 }
 
 /* Force light inputs on all form elements */
@@ -63,6 +67,15 @@ textarea::placeholder {
 }
 
 /* Global Reset & Body */
+* {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
 html {
     overflow-x: hidden;
     max-width: 100%;
@@ -91,7 +104,7 @@ h6 {
 }
 
 h1 {
-    color: var(--primary-red);
+    color: var(--primary-blue);
     font-size: clamp(1.75rem, 5vw, 2.75rem);
     line-height: 1.2;
     margin-bottom: 1.5rem;
@@ -113,19 +126,16 @@ h1 {
 .hero-title {
     font-size: clamp(2.8rem, 10vw, 5.5rem) !important;
     line-height: 1.1;
-    color: var(--midnight-blue);
+    color: #FFFFFF;
     /* Clean shadow without stroke to avoid construction lines */
-    text-shadow:
-        2px 2px 4px rgba(0, 0, 0, 0.3),
-        4px 4px 8px rgba(0, 0, 0, 0.2),
-        0 0 20px rgba(255, 255, 255, 0.3);
+    text-shadow: none;
 }
 
 
 
 h2 {
     font-size: 1.6rem;
-    border-left: 4px solid var(--primary-red);
+    border-left: 4px solid var(--primary-blue);
     padding-left: 1rem;
     color: var(--midnight-blue);
 }
@@ -148,6 +158,32 @@ p {
 }
 
 /* --------------------------------------------------------------------------
+   Logo - Simple & Bold
+   -------------------------------------------------------------------------- */
+.brand-logo {
+    display: inline-block;
+    font-size: 2rem;
+    font-weight: 800;
+    text-decoration: none;
+    line-height: 1;
+    padding: 0;
+    border: none;
+    background: transparent;
+    color: #FFFFFF;
+    letter-spacing: -1px;
+}
+
+.brand-text-fixa {
+    color: #FFFFFF;
+    margin-right: 0;
+}
+
+.brand-text-pathway {
+    color: #FFFFFF;
+    margin-left: 0;
+}
+
+/* --------------------------------------------------------------------------
    Navigation - Glass & Floating
    -------------------------------------------------------------------------- */
 nav {
@@ -157,17 +193,18 @@ nav {
     margin-bottom: 0;
     width: 100%;
     z-index: 1000;
-    background: transparent;
+    background: #000000;
     border-bottom: none;
     padding: 1rem 1.5rem;
-    transition: all 0.4s ease;
+    box-shadow: none;
+    border: none;
 }
 
-/* Instant solid state for internal pages */
+/* Instant solid state for internal pages - consistent black */
 nav.internal-nav {
     position: fixed !important;
-    background: var(--midnight-blue) !important;
-    border-bottom: 2px solid var(--primary-red) !important;
+    background: #000000 !important;
+    border-bottom: none !important;
 }
 
 /* Ensure white links on blue background */
@@ -178,18 +215,19 @@ nav.internal-nav ul li a {
 nav ul li a {
     color: var(--pure-white);
     font-weight: 500;
-    transition: all 0.3s;
     padding: 0.5rem 1rem;
     border-radius: 20px;
 }
 
 nav ul li a:hover,
+nav ul li a.active,
+nav ul li a[aria-current="page"],
 nav ul li a.role-button {
-    color: var(--primary-red);
+    color: var(--primary-blue);
 }
 
 nav ul li a[role="button"] {
-    background: var(--primary-red);
+    background: var(--primary-blue);
     border: none;
     color: var(--text-light) !important;
     padding: 0.5rem 1.5rem;
@@ -198,116 +236,88 @@ nav ul li a[role="button"] {
 }
 
 nav ul li a[role="button"]:hover {
-    background: #b71c1c;
+    background: var(--pure-white);
+    color: var(--primary-blue) !important;
+    border: 1px solid var(--primary-blue);
 }
 
 /* Internal Page Navigation Colors (Defaulting to white for solid bars) */
 .internal-links li a:hover {
-    color: var(--primary-red) !important;
+    color: var(--primary-blue) !important;
 }
 
 /* --------------------------------------------------------------------------
    Hero Section - Immersive
    -------------------------------------------------------------------------- */
-/* Background Elements covering BOTH hero and stats */
-.hero-bg-img,
-.hero-overlay,
-#particles-js {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.hero-bg-img {
-    background-image: url('image/hero-bg.png');
-    background-size: cover;
-    background-position: 35% center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    /* Parallax effect remains key */
-    z-index: 0;
-    opacity: 0.85;
-    mix-blend-mode: multiply;
-}
-
-/* Focus on robot (left side) on mobile and tablet */
-@media (max-width: 1024px) {
-    .hero-bg-img {
-        background-position: 20% center;
-        background-attachment: fixed;
-        /* Enable parallax on mobile */
-        height: 100%;
-        /* Let container dictate height */
-    }
-}
-
-.hero-overlay {
-    /* Gradual fade that stays clear through the hero content/cards and ends before stats */
-    background: linear-gradient(to bottom,
-            transparent 0%,
-            transparent 60%,
-            rgba(229, 234, 245, 0.4) 85%,
-            var(--bg-main) 100%);
-    z-index: 1;
-}
-
-.hero-overlay-plain {
-    /* Subtle dim for legibility without the bottom edge blur */
-    background: rgba(0, 5, 26, 0.3);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-}
-
-#particles-js {
-    z-index: 1;
-    pointer-events: none;
-}
-
-.hero {
+/* --------------------------------------------------------------------------
+   Hero Section - Clean Implementation
+   -------------------------------------------------------------------------- */
+.hero-container {
     position: relative;
-    min-height: 90vh;
-    /* Re-balanced hero-only height */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    width: 100%;
     overflow: hidden;
+    /* Ensure no extra spacing below image */
+    line-height: 0;
+}
+
+.hero-bg-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    /* No filters, purely the original image */
+}
+
+/* On very wide screens, prevent image from becoming too tall */
+@media (min-width: 1920px) {
+    .hero-bg-image {
+        max-height: 90vh;
+        object-fit: cover;
+    }
+}
+
+.hero-content-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+    /* Reset line-height for text content */
+    line-height: 1.5;
     z-index: 2;
 }
 
-@media (max-width: 1024px) {
-    .hero {
-        padding-top: 80px;
-        /* Reduced top spacing */
-        align-items: flex-start;
-        /* Ensure content starts lower */
-        padding-bottom: 2rem;
-    }
-
-    .hero-content {
-        margin-top: 2rem;
-        /* Reduced from 4rem to pull content up */
-    }
-}
-
-/* Robot Face Spotlight - Circular focused glow around robot */
-.hero-bg-img::before {
-    display: none;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
+.hero-text-wrapper {
+    /* Limit width for readability */
     max-width: 1200px;
-    /* Expanded from 900px */
+    margin: 0 auto;
     padding: 2rem;
-    width: 95%;
+}
+
+/* Reset specific to hero text to ensure visibility against image */
+.hero-title {
+    color: #FFFFFF;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    /* Slight shadow for readability */
+    margin-bottom: 2rem;
+}
+
+/* Make overlay text responsive */
+@media (max-width: 768px) {
+    .hero-content-overlay {
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .hero-title {
+        font-size: 1.5rem !important;
+        margin-bottom: 1rem;
+    }
+
+    .hero-text-wrapper {
+        padding: 1rem;
+    }
 }
 
 /* Glassmorphism Hero Description */
@@ -339,39 +349,17 @@ nav ul li a[role="button"]:hover {
     justify-content: center;
     margin-bottom: 0;
 
-    text-shadow:
-        0 0 10px rgba(0, 0, 0, 0.9),
-        2px 2px 4px rgba(0, 0, 0, 0.8),
-        4px 4px 12px rgba(0, 0, 0, 0.7),
-        0 0 20px rgba(0, 0, 0, 0.5);
+    text-shadow: none;
     /* Multiple shadow layers for crisp, clear text */
 }
 
 .hero-desc-glass strong {
-    color: var(--primary-red);
+    color: #FFFFFF;
     font-weight: 700;
 }
 
 .typewriter-cursor {
-    display: inline-block;
-    width: 3px;
-    height: 1.2rem;
-    background-color: var(--primary-red);
-    margin-left: 5px;
-    vertical-align: middle;
-    animation: blink-cursor 0.8s step-end infinite;
-}
-
-@keyframes blink-cursor {
-
-    from,
-    to {
-        opacity: 1;
-    }
-
-    50% {
-        opacity: 0;
-    }
+    display: none;
 }
 
 /* Hero Badge */
@@ -379,9 +367,9 @@ nav ul li a[role="button"]:hover {
     display: inline-block;
     padding: 0.25rem 1.25rem;
     border-radius: 4px;
-    background: rgba(229, 57, 53, 0.1);
-    border: 1px solid var(--primary-red);
-    color: var(--primary-red);
+    background: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    color: #FFFFFF;
     font-size: 0.85rem;
     letter-spacing: 1.5px;
     text-transform: uppercase;
@@ -391,19 +379,19 @@ nav ul li a[role="button"]:hover {
 
 /* Hero Buttons */
 .btn-glow {
-    background: var(--primary-red);
+    background: var(--primary-blue);
     color: var(--text-light);
     border: none;
     font-weight: 700;
     padding: var(--btn-padding-y) var(--btn-padding-x);
     font-size: var(--btn-font-size);
     border-radius: 4px;
-    transition: all 0.3s ease;
 }
 
 .btn-glow:hover {
-    background: #b71c1c;
-    transform: translateY(-2px);
+    background: var(--pure-white);
+    color: var(--primary-blue);
+    border: 1px solid var(--primary-blue);
 }
 
 /* Global Button & Outline Overrides */
@@ -424,16 +412,13 @@ button,
    Cards & Modules - Premium Glass
    -------------------------------------------------------------------------- */
 article {
-    background: rgba(255, 255, 255, 0.75) !important;
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+    background: #FFFFFF !important;
+    border: 1px solid var(--primary-blue) !important;
     /* Removed global red bottom border */
     border-bottom: none !important;
     border-radius: 20px !important;
     padding: 2rem !important;
-    transition: all 0.4s ease;
-    box-shadow: 0 10px 40px rgba(0, 11, 51, 0.08);
+    box-shadow: none;
 }
 
 /* Ensure text in cards is dark and clear */
@@ -445,8 +430,8 @@ article h5 {
 }
 
 article:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 0 8px 25px rgba(0, 11, 51, 0.1);
+    transform: none;
+    box-shadow: none;
 }
 
 article header {
@@ -459,7 +444,7 @@ article header {
 
 /* Icons in cards */
 article i {
-    color: var(--primary-red);
+    color: var(--primary-blue);
     margin-bottom: 1rem;
 }
 
@@ -474,24 +459,21 @@ article i {
 }
 
 .service-item {
-    background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: #FFFFFF;
+    border: 1px solid var(--primary-blue);
     border-radius: 16px;
     padding: 1rem;
-    transition: all 0.4s ease;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0 8px 32px 0 rgba(0, 11, 51, 0.03);
+    box-shadow: none;
 }
 
 .service-item:hover {
-    transform: translate(-1px, -1px);
-    border-color: var(--primary-red);
-    box-shadow: 0 8px 20px rgba(0, 11, 51, 0.08);
+    transform: none;
+    border-color: var(--primary-blue);
+    box-shadow: none;
 }
 
 .service-img-container {
@@ -501,18 +483,17 @@ article i {
     overflow: hidden;
     margin-bottom: 1rem;
     position: relative;
-    background: rgba(0, 0, 0, 0.2);
+    background: var(--primary-blue);
 }
 
 .service-img-container img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s ease;
 }
 
 .service-item:hover .service-img-container img {
-    transform: scale(1.1);
+    transform: none;
 }
 
 .service-fallback-icon {
@@ -522,8 +503,9 @@ article i {
     align-items: center;
     justify-content: center;
     font-size: 3rem;
-    background: rgba(229, 57, 53, 0.1);
-    color: var(--primary-red);
+    background: #FFFFFF;
+    color: var(--primary-blue);
+    border: 1px solid var(--primary-blue);
 }
 
 .service-item h5 {
@@ -541,7 +523,8 @@ article i {
 
 @media (max-width: 600px) {
     .services-grid {
-        grid-template-columns: repeat(2, 1fr);
+        /* Let it stack naturally or use auto-fit */
+        grid-template-columns: 1fr;
         gap: 1rem;
     }
 
@@ -551,6 +534,10 @@ article i {
 
     .service-item h5 {
         font-size: 0.85rem;
+    }
+
+    article {
+        padding: 1rem !important;
     }
 }
 
@@ -575,20 +562,20 @@ article i {
     width: 3.5rem !important;
     height: 3.5rem !important;
     border-radius: 4px !important;
-    background: var(--primary-red);
+    background: var(--primary-blue);
     color: var(--text-light);
-    border: 2px solid var(--midnight-blue);
+    border: 2px solid var(--primary-blue);
     font-size: 1.5rem;
     padding: 0 !important;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: transform 0.3s;
 }
 
 .fab-main:hover {
-    background: #b71c1c;
+    background: var(--pure-white);
+    color: var(--primary-blue);
     transform: scale(1.1);
 }
 
@@ -602,7 +589,8 @@ article i {
     opacity: 0;
     transform: translateY(20px);
     pointer-events: none;
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform: translateY(20px);
+    pointer-events: none;
 }
 
 .fab-container.active .fab-options {
@@ -631,7 +619,6 @@ article i {
     font-size: 1.25rem;
     /* Reduced icon size */
     color: white;
-    transition: all 0.3s;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     position: relative;
     overflow: hidden;
@@ -640,7 +627,7 @@ article i {
 .fab-label {
     position: absolute;
     left: 110%;
-    background: var(--midnight-blue);
+    background: var(--primary-blue);
     padding: 0.4rem 0.8rem;
     border-radius: 4px;
     color: var(--text-light);
@@ -648,7 +635,6 @@ article i {
     white-space: nowrap;
     opacity: 0;
     transform: translateX(-10px);
-    transition: 0.3s;
     pointer-events: none;
 }
 
@@ -659,15 +645,15 @@ article i {
 
 /* Unified FAB Colors */
 .bg-whatsapp {
-    background: #25D366 !important;
+    background: var(--primary-blue) !important;
 }
 
 .bg-telegram {
-    background: #0088cc !important;
+    background: var(--primary-blue) !important;
 }
 
 .bg-email {
-    background: #EA4335 !important;
+    background: var(--primary-blue) !important;
 }
 
 .fab-item a:hover {
@@ -678,48 +664,10 @@ article i {
 /* --------------------------------------------------------------------------
    Animations 
    -------------------------------------------------------------------------- */
-@keyframes breathe {
-    0% {
-        transform: scale(1.0);
-    }
-
-    100% {
-        transform: scale(1.1);
-    }
-}
-
-@keyframes floatIcon {
-    0% {
-        transform: translateY(0px);
-    }
-
-    50% {
-        transform: translateY(-10px);
-    }
-
-    100% {
-        transform: translateY(0px);
-    }
-}
-
-/* Pulsing glow effect for robot spotlight */
-@keyframes pulseGlow {
-
-    0%,
-    100% {
-        opacity: 0.6;
-    }
-
-    50% {
-        opacity: 0.3;
-    }
-}
-
 .floating-icon {
-    animation: floatIcon 4s ease-in-out infinite;
+    /* No animation */
 }
 
-/* Responsive Tweaks */
 @media (max-width: 1024px) {
     h1 {
         font-size: 1.75rem;
@@ -730,7 +678,7 @@ article i {
         top: 0;
         width: 100%;
         margin-top: 0;
-        backdrop-filter: blur(20px);
+        margin-top: 0;
     }
 
     .desktop-links {
@@ -741,43 +689,21 @@ article i {
         display: block !important;
     }
 
-    .hero {
-        min-height: 70vh;
+    .hero-container {
+        min-height: auto;
     }
 
-    .hero-bg-img {
-        transform: scale(1);
-        animation: none;
-        background-attachment: scroll;
-        background-position: 30% center;
-        min-height: 70vh;
-        will-change: auto;
-
-        -webkit-mask-image: radial-gradient(circle at 30% 50%, black 20%, transparent 95%);
-        mask-image: radial-gradient(circle at 30% 50%, black 20%, transparent 95%);
+    .hero-bg-image {
+        height: 100vh;
+        object-fit: cover;
+        object-position: 20% center;
     }
 
     /* Darkened spotlight for mobile/tablet */
-    .hero-bg-img::before {
-        width: 250px;
-        height: 250px;
-        left: 30%;
-        background: radial-gradient(circle,
-                rgba(255, 255, 255, 0.1) 0%,
-                rgba(52, 76, 183, 0.15) 20%,
-                rgba(255, 235, 0, 0.1) 40%,
-                transparent 70%);
-    }
 
     /* Balanced darkening for robot side (lighter) */
     .hero-overlay {
-        background:
-            radial-gradient(circle at 30% 50%,
-                rgba(0, 9, 87, 0.2) 0%,
-                rgba(0, 9, 87, 0.4) 40%,
-                rgba(0, 9, 87, 0.6) 70%,
-                var(--bg-dark) 100%),
-            linear-gradient(to bottom, transparent 75%, var(--bg-dark) 100%);
+        display: none;
     }
 
     /* Mobile FAB Size Reductions */
@@ -812,16 +738,16 @@ article i {
 .mobile-toggle i {
     font-size: 1.5rem;
     color: #FFFFFF !important;
-    background: var(--primary-red) !important;
+    background: var(--primary-blue) !important;
     padding: 0.6rem 0.8rem;
     border-radius: 6px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
 }
 
 .mobile-toggle i:hover {
-    background: #b71c1c !important;
-    transform: scale(1.05);
+    background: var(--pure-white) !important;
+    color: var(--primary-blue) !important;
+    border: 1px solid var(--primary-blue);
 }
 
 .mobile-menu-overlay {
@@ -830,7 +756,7 @@ article i {
     left: 0;
     width: 100%;
     height: 100vh;
-    background: var(--midnight-blue);
+    background: var(--primary-blue);
     z-index: 10000;
     display: flex;
     flex-direction: column;
@@ -838,7 +764,6 @@ article i {
     justify-content: center;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s ease;
 }
 
 .mobile-menu-overlay.active {
@@ -858,8 +783,7 @@ article i {
     margin: 0;
     opacity: 0;
     transform: translateY(20px);
-    transition: all 0.3s ease;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 2px solid #FFFFFF;
 }
 
 .mobile-menu-overlay.active li {
@@ -874,14 +798,13 @@ article i {
     color: #FFFFFF;
     text-decoration: none;
     padding: 1.5rem;
-    transition: all 0.2s ease;
     text-align: center;
 }
 
 .mobile-menu-overlay a:hover,
 .mobile-menu-overlay a:active {
-    background: rgba(229, 57, 53, 0.15);
-    color: var(--primary-red);
+    background: #FFFFFF;
+    color: var(--primary-blue);
 }
 
 .close-menu-btn {
@@ -890,18 +813,17 @@ article i {
     right: 2rem;
     font-size: 2rem;
     color: #FFFFFF !important;
-    background: var(--primary-red) !important;
+    background: var(--primary-blue) !important;
     cursor: pointer;
     border: none;
     padding: 0.5rem 0.8rem;
     border-radius: 6px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
 }
 
 .close-menu-btn:hover {
-    background: #b71c1c !important;
-    transform: scale(1.05);
+    background: #FFFFFF !important;
+    color: var(--primary-blue) !important;
 }
 
 /* Stagger animation for menu items */
@@ -932,16 +854,15 @@ article i {
     width: 3.5rem !important;
     height: 3.5rem !important;
     border-radius: 4px !important;
-    background: var(--primary-red);
+    background: var(--primary-blue);
     color: var(--text-light);
-    border: 2px solid var(--midnight-blue);
+    border: 2px solid var(--primary-blue);
     font-size: 1.5rem;
     padding: 0 !important;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: all 0.3s ease;
     opacity: 0;
     visibility: hidden;
     transform: translateY(20px);
@@ -954,9 +875,9 @@ article i {
 }
 
 .scroll-to-top:hover {
-    background: #b71c1c;
-    /* Changed from blue hover */
-    transform: translateY(-5px) scale(1.1);
+    background: #FFFFFF;
+    color: var(--primary-blue);
+    border: 2px solid var(--primary-blue);
 }
 
 /* --------------------------------------------------------------------------
@@ -970,21 +891,18 @@ article i {
 }
 
 .step-card {
-    background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: #FFFFFF;
+    border: 1px solid var(--primary-blue);
     border-radius: 16px;
     padding: 2rem;
     position: relative;
-    transition: all 0.4s ease;
     text-align: center;
-    box-shadow: 0 8px 32px 0 rgba(0, 11, 51, 0.03);
+    box-shadow: none;
 }
 
 .step-card:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 0 8px 20px rgba(0, 11, 51, 0.08);
+    transform: none;
+    box-shadow: none;
 }
 
 .step-number {
@@ -992,7 +910,7 @@ article i {
     top: -15px;
     left: 50%;
     transform: translateX(-50%);
-    background: var(--primary-red);
+    background: var(--primary-blue);
     color: var(--text-light);
     width: 30px;
     height: 30px;
@@ -1007,7 +925,7 @@ article i {
 .step-card i {
     font-size: 2.5rem;
     margin-bottom: 1.5rem;
-    color: var(--primary-red);
+    color: var(--primary-blue);
 }
 
 .step-card h4 {
@@ -1040,8 +958,8 @@ article i {
     border-radius: 50%;
     object-fit: cover;
     margin: 0 auto 1.5rem;
-    border: 3px solid var(--primary-red);
-    box-shadow: 0 4px 15px rgba(0, 11, 51, 0.1);
+    border: 3px solid var(--primary-blue);
+    box-shadow: none;
 }
 
 .testimonial-text {
@@ -1063,7 +981,7 @@ article i {
 }
 
 .star-rating {
-    color: #FFD700;
+    color: var(--primary-blue);
     margin-bottom: 1rem;
 }
 
@@ -1073,7 +991,7 @@ footer {
     color: var(--text-light) !important;
     padding: 6rem 1.5rem !important;
     margin-top: 4rem !important;
-    border-top: 4px solid var(--primary-red) !important;
+    border-top: 4px solid var(--primary-blue) !important;
     overflow: hidden;
     width: 100% !important;
     max-width: 100% !important;
@@ -1103,15 +1021,7 @@ footer::before {
 
 /* Minimal Gradient for text readability only */
 footer::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 5, 26, 0.4);
-    /* Very light guard for text */
-    z-index: 1;
+    display: none;
 }
 
 footer>* {
@@ -1127,7 +1037,7 @@ footer small {
 }
 
 footer a:hover {
-    color: var(--primary-red) !important;
+    color: var(--primary-blue) !important;
     opacity: 1;
 }
 

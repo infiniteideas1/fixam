@@ -16,10 +16,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- Particles.js -->
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="particles.min.js"></script>
+    <!-- AOS Animation Library REMOVED -->
 
     <!-- Custom Style -->
     <link rel="stylesheet" href="style.css">
@@ -28,12 +26,11 @@
 <body>
 
     <!-- Navigation -->
-    <nav class="container-fluid" data-aos="fade-down">
+    <nav class="container-fluid">
         <ul>
             <li>
-                <a href="/" style="font-size: 1.5rem; font-weight: 800; text-decoration: none;">
-                    <span style="color: var(--primary-red);">Fixa</span><span
-                        style="color: var(--pure-white);">pathway</span>
+                <a href="/" class="brand-logo">
+                    <span class="brand-text-fixa">Fixa</span><span class="brand-text-pathway">pathway</span>
                 </a>
             </li>
         </ul>
@@ -48,88 +45,86 @@
         </ul>
     </nav>
 
-    <!-- Hero & Initial Info Influence Area -->
-    <div class="hero-influence-area" style="position: relative; overflow: hidden; min-height: 140vh;">
-        <!-- Background Elements moved here to cover multiple sections -->
-        <div class="hero-bg-img"></div>
-        <div class="hero-overlay"></div>
-        <div id="particles-js"></div>
+    <!-- Hero Section -->
+    <header class="hero-container">
+        <!-- Actual Image Tag for Responsiveness -->
+        <img src="image/hero-bg.png" alt="Cybersecurity Background" class="hero-bg-image">
 
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-content">
-                <span class="badge-pill" data-aos="zoom-in" data-aos-delay="200">World Class Security</span>
-                <h1 class="hero-title" data-aos="fade-up" data-aos-delay="400">Regain Control of Your Digital Identity
-                </h1>
-                <div class="hero-desc-container" data-aos="fade-up" data-aos-delay="600">
-                    <p class="hero-desc-glass" id="typewriter-text"></p>
+        <div class="hero-content-overlay">
+            <div class="container hero-text-wrapper">
+                <h1 class="hero-title">Regain Control of Your Digital Identity</h1>
+                <div class="hero-desc-container">
+                    <p class="hero-desc-glass">Secure, confidential, and rapid recovery services.</p>
                 </div>
                 <br>
-                <div data-aos="fade-up" data-aos-delay="800">
+                <div class="mt-4">
                     <a href="contact" role="button" class="btn-glow" style="border-radius: 4px;">
-                        Start Recovery <i class="fas fa-arrow-right" style="margin-left: 10px;"></i>
+                        Contact Us <i class="fas fa-arrow-right" style="margin-left: 10px;"></i>
                     </a>
                 </div>
             </div>
+        </div>
+        <div id="particles-js"
+            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; pointer-events: none;">
+        </div>
+    </header>
+
+    <!-- Informational Sections -->
+    <main class="container">
+        <section style="margin-top: 4rem; text-align: center;">
+            <hgroup>
+                <h2 style="border-left: none;">Why Fixapathway?</h2>
+                <h3>Trusted by thousands to recover what matters most.</h3>
+            </hgroup>
+
+            <div class="grid">
+                <!-- Card 1 -->
+                <article>
+                    <header><i class="fas fa-shield-alt fa-3x floating-icon"></i></header>
+                    <h4>Secure Recovery</h4>
+                    <p>We use military-grade protocols to safely recover your compromised social media accounts
+                        without
+                        triggering automated bans.</p>
+                </article>
+
+                <!-- Card 2 -->
+                <article>
+                    <header><i class="fas fa-user-secret fa-3x floating-icon" style="animation-delay: 1s;"></i>
+                    </header>
+                    <h4>Total Privacy</h4>
+                    <p>Your data is encrypted and handled with strict confidentiality. We operate in the shadows so
+                        you
+                        can live in the light.</p>
+                </article>
+
+                <!-- Card 3 -->
+                <article>
+                    <header><i class="fas fa-bolt fa-3x floating-icon" style="animation-delay: 2s;"></i></header>
+                    <h4>Rapid Action</h4>
+                    <p>Time is critical. Our 24/7 rapid response team works tirelessly to restore your access before
+                        damage occurs.</p>
+                </article>
+            </div>
         </section>
-
-        <!-- Informational Sections inside influence area -->
-        <main class="container">
-            <section style="margin-top: 4rem; text-align: center;">
-                <hgroup data-aos="fade-up">
-                    <h2 style="border-left: none;">Why Fixapathway?</h2>
-                    <h3>Trusted by thousands to recover what matters most.</h3>
-                </hgroup>
-
-                <div class="grid">
-                    <!-- Card 1 -->
-                    <article data-aos="flip-up" data-aos-delay="100">
-                        <header><i class="fas fa-shield-alt fa-3x floating-icon"></i></header>
-                        <h4>Secure Recovery</h4>
-                        <p>We use military-grade protocols to safely recover your compromised social media accounts
-                            without
-                            triggering automated bans.</p>
-                    </article>
-
-                    <!-- Card 2 -->
-                    <article data-aos="flip-up" data-aos-delay="300">
-                        <header><i class="fas fa-user-secret fa-3x floating-icon" style="animation-delay: 1s;"></i>
-                        </header>
-                        <h4>Total Privacy</h4>
-                        <p>Your data is encrypted and handled with strict confidentiality. We operate in the shadows so
-                            you
-                            can live in the light.</p>
-                    </article>
-
-                    <!-- Card 3 -->
-                    <article data-aos="flip-up" data-aos-delay="500">
-                        <header><i class="fas fa-bolt fa-3x floating-icon" style="animation-delay: 2s;"></i></header>
-                        <h4>Rapid Action</h4>
-                        <p>Time is critical. Our 24/7 rapid response team works tirelessly to restore your access before
-                            damage occurs.</p>
-                    </article>
-                </div>
-            </section>
-        </main>
-    </div>
+    </main>
 
     <!-- Main Content Area -->
     <main class="container">
         <!-- Stats Section -->
-        <section style="text-align: center; padding: 2rem 0;" data-aos="zoom-in">
+        <section style="text-align: center; padding: 2rem 0;">
             <div class="grid">
                 <div>
-                    <h2 class="display-stat" style="color: var(--primary-red); margin-bottom: 0;"><span class="counter"
+                    <h2 class="display-stat" style="color: var(--primary-blue); margin-bottom: 0;"><span class="counter"
                             data-target="98">0</span>%</h2>
                     <p>Success Rate</p>
                 </div>
                 <div>
-                    <h2 class="display-stat" style="color: var(--primary-red); margin-bottom: 0;"><span class="counter"
+                    <h2 class="display-stat" style="color: var(--primary-blue); margin-bottom: 0;"><span class="counter"
                             data-target="8">0</span>k+</h2>
                     <p>Accounts Recovered</p>
                 </div>
                 <div>
-                    <h2 class="display-stat" style="color: var(--primary-red); margin-bottom: 0;"><span class="counter"
+                    <h2 class="display-stat" style="color: var(--primary-blue); margin-bottom: 0;"><span class="counter"
                             data-target="24">0</span>/7</h2>
                     <p>Live Support</p>
                 </div>
@@ -138,7 +133,7 @@
 
         <!-- Expertise Section -->
         <section style="text-align: center;">
-            <div data-aos="fade-up">
+            <div>
                 <h2>Expertise Across All Platforms</h2>
                 <div style="max-width: 700px; margin: 0 auto;">
                     <p>From social media and messaging apps to crypto wallets and enterprise emails, we have the
@@ -147,7 +142,7 @@
 
                 <div class="services-grid">
                     <!-- 1. Facebook -->
-                    <div class="service-item" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="service-item">
                         <div class="service-img-container">
                             <img src="image/service_fb.png" alt="Facebook Recovery">
                         </div>
@@ -155,7 +150,7 @@
                     </div>
 
                     <!-- 2. Instagram -->
-                    <div class="service-item" data-aos="zoom-in" data-aos-delay="150">
+                    <div class="service-item">
                         <div class="service-img-container">
                             <img src="image/service_ig.png" alt="Instagram Recovery">
                         </div>
@@ -163,7 +158,7 @@
                     </div>
 
                     <!-- 3. Email -->
-                    <div class="service-item" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="service-item">
                         <div class="service-img-container">
                             <img src="image/service_email.png" alt="Email Recovery">
                         </div>
@@ -171,7 +166,7 @@
                     </div>
 
                     <!-- 4. Crypto -->
-                    <div class="service-item" data-aos="zoom-in" data-aos-delay="250">
+                    <div class="service-item">
                         <div class="service-img-container">
                             <img src="image/service_crypto.png" alt="Crypto Recovery">
                         </div>
@@ -179,7 +174,7 @@
                     </div>
 
                     <!-- 5. WhatsApp -->
-                    <div class="service-item" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="service-item">
                         <div class="service-img-container">
                             <img src="image/service_wa.png" alt="WhatsApp Recovery">
                         </div>
@@ -187,7 +182,7 @@
                     </div>
 
                     <!-- 6. Reddit -->
-                    <div class="service-item" data-aos="zoom-in" data-aos-delay="350">
+                    <div class="service-item">
                         <div class="service-img-container">
                             <img src="image/service_reddit.png" alt="Reddit Recovery">
                         </div>
@@ -195,7 +190,7 @@
                     </div>
 
                     <!-- 7. Discord -->
-                    <div class="service-item" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="service-item">
                         <div class="service-img-container">
                             <img src="image/service_discord.png" alt="Discord Recovery">
                         </div>
@@ -203,7 +198,7 @@
                     </div>
 
                     <!-- 8. Files & Media -->
-                    <div class="service-item" data-aos="zoom-in" data-aos-delay="450">
+                    <div class="service-item">
                         <div class="service-img-container">
                             <img src="image/service_files.png" alt="Files & Media Recovery">
                         </div>
@@ -211,7 +206,7 @@
                     </div>
 
                     <!-- 9. Telegram -->
-                    <div class="service-item" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="service-item">
                         <div class="service-img-container">
                             <img src="image/service_telegram.png" alt="Telegram Recovery">
                         </div>
@@ -219,7 +214,7 @@
                     </div>
 
                     <!-- 10. YouTube -->
-                    <div class="service-item" data-aos="zoom-in" data-aos-delay="550">
+                    <div class="service-item">
                         <div class="service-img-container">
                             <img src="image/service_youtube.png" alt="YouTube Recovery">
                         </div>
@@ -227,7 +222,7 @@
                     </div>
 
                     <!-- 11. X (Twitter) -->
-                    <div class="service-item" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="service-item">
                         <div class="service-img-container">
                             <img src="image/service_twitter.png" alt="X Twitter Recovery">
                         </div>
@@ -235,7 +230,7 @@
                     </div>
 
                     <!-- 12. Microsoft -->
-                    <div class="service-item" data-aos="zoom-in" data-aos-delay="650">
+                    <div class="service-item">
                         <div class="service-img-container">
                             <img src="image/service_microsoft.png" alt="Microsoft Recovery">
                         </div>
@@ -244,14 +239,14 @@
                 </div>
 
                 <div style="margin-top: 2.5rem;">
-                    <a href="contact" role="button" class="btn-glow">Start Recovery</a>
+                    <a href="contact" role="button" class="btn-glow">Contact Us</a>
                 </div>
             </div>
         </section>
 
         <!-- Clients' Testimonials -->
         <section style="margin-top: 6rem; margin-bottom: 4rem;">
-            <div style="text-align: center;" data-aos="fade-up">
+            <div style="text-align: center;">
                 <hgroup>
                     <h2>Clients' Testimonials</h2>
                     <h3>Trusted by Professionals</h3>
@@ -260,7 +255,7 @@
 
             <div class="testimonials-grid">
                 <!-- Testimonial 2: Female -->
-                <article class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+                <article class="testimonial-card">
                     <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop"
                         alt="Jessica L." class="client-photo">
                     <div class="star-rating">
@@ -274,7 +269,7 @@
                 </article>
 
                 <!-- Testimonial 3: Male -->
-                <article class="testimonial-card" data-aos="fade-up" data-aos-delay="300">
+                <article class="testimonial-card">
                     <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop"
                         alt="Michael B." class="client-photo">
                     <div class="star-rating">
@@ -288,7 +283,7 @@
                 </article>
 
                 <!-- Testimonial 4: Female -->
-                <article class="testimonial-card" data-aos="fade-up" data-aos-delay="400">
+                <article class="testimonial-card">
                     <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop"
                         alt="Amanda S." class="client-photo">
                     <div class="star-rating">
@@ -359,9 +354,7 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- AOS Script -->
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- AOS Script REMOVED -->
     <script src="script.js"></script>
 </body>
 

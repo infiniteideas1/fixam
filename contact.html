@@ -15,8 +15,7 @@
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- AOS Animation Library REMOVED -->
 
     <!-- Custom Style -->
     <link rel="stylesheet" href="style.css">
@@ -25,12 +24,11 @@
 <body>
 
     <!-- Navigation -->
-    <nav class="container-fluid internal-nav" data-aos="fade-down">
+    <nav class="container-fluid internal-nav">
         <ul>
             <li>
-                <a href="/" style="font-size: 1.5rem; font-weight: 800; text-decoration: none;">
-                    <span style="color: var(--primary-red);">Fixa</span><span
-                        style="color: var(--pure-white);">pathway</span>
+                <a href="/" class="brand-logo">
+                    <span class="brand-text-fixa">Fixa</span><span class="brand-text-pathway">pathway</span>
                 </a>
             </li>
         </ul>
@@ -60,8 +58,8 @@
                 <div class="grid">
 
                     <!-- Contact Info Column -->
-                    <div data-aos="fade-right" data-aos-delay="100">
-                        <h3 style="color: var(--primary-red);">Direct Channels</h3>
+                    <div>
+                        <h3 style="color: var(--primary-blue);">Direct Channels</h3>
                         <p>For the fastest response, please use our direct messaging channels.</p>
 
                         <article style="border-left: 5px solid var(--midnight-blue);">
@@ -96,14 +94,14 @@
                             </header>
                             <a href="mailto:fixapathway@gmail.com" target="_blank"
                                 style="text-decoration: none; color: var(--text-bright);">
-                                <i class="fas fa-envelope" style="margin-right: 10px; color: #EA4335;"></i>
+                                <i class="fas fa-envelope" style="margin-right: 10px; color: var(--primary-blue);"></i>
                                 fixapathway@gmail.com
                             </a>
                         </article>
                     </div>
 
                     <!-- Contact Form Column -->
-                    <div data-aos="fade-left" data-aos-delay="200">
+                    <div>
                         <h3>Send a Request</h3>
                         <form
                             style="background: transparent; padding: 2rem; border-radius: 8px; border: 1px solid rgba(0, 0, 0, 0.1);">
@@ -147,15 +145,15 @@
 
             <!-- Google Map Section -->
             <section style="margin-top: 2rem; margin-bottom: 6rem;">
-                <div style="text-align: center; margin-bottom: 2rem;" data-aos="fade-up">
+                <div style="text-align: center; margin-bottom: 2rem;">
                     <hgroup>
                         <h2 style="border:none; margin:0;">Our Headquarters</h2>
                         <h3 style="color: var(--text-main);">Strategically located in the heart of Silicon Valley.</h3>
                     </hgroup>
                 </div>
 
-                <article data-aos="zoom-in"
-                    style="padding: 0; overflow: hidden; border-radius: 1rem; box-shadow: 0 20px 40px rgba(0,0,0,0.1); border: 2px solid var(--primary-red);">
+                <article
+                    style="padding: 0; overflow: hidden; border-radius: 1rem; box-shadow: 0 20px 40px rgba(0,0,0,0.1); border: 2px solid var(--primary-blue);">
                     <div style="width: 100%; height: 450px; position: relative;">
                         <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0"
                             marginwidth="0"
@@ -164,7 +162,7 @@
 
                         <!-- Glassmorphism Address Overlay -->
                         <div
-                            style="position: absolute; bottom: 20px; left: 20px; background: rgba(255, 255, 255, 0.9); padding: 1rem 1.5rem; border-radius: 12px; backdrop-filter: blur(10px); border-left: 4px solid var(--primary-red); max-width: 300px; box-shadow: 0 10px 20px rgba(0,0,0,0.15);">
+                            style="position: absolute; bottom: 20px; left: 20px; background: rgba(255, 255, 255, 0.9); padding: 1rem 1.5rem; border-radius: 12px; backdrop-filter: blur(10px); border-left: 4px solid var(--primary-blue); max-width: 300px; box-shadow: 0 10px 20px rgba(0,0,0,0.15);">
                             <h5 style="margin: 0; color: var(--midnight-blue); font-weight: 700;">Fixapathway HQ</h5>
                             <p style="margin: 0.25rem 0 0; font-size: 0.9rem; color: var(--text-main);">150 W San Carlos
                                 St<br>San Jose, CA 95113</p>
@@ -228,7 +226,7 @@
 
     <!-- AOS Script -->
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- AOS Script REMOVED -->
     <script src="script.js"></script>
 </body>
 
