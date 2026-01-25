@@ -1,12 +1,14 @@
 /* Initialize AOS (Animate On Scroll) */
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize AOS
+    // Initialize AOS with mobile-optimized settings
+    const isMobile = window.innerWidth <= 1024;
     AOS.init({
-        duration: 1000,
-        easing: 'ease-out-cubic',
+        duration: isMobile ? 400 : 1000,
+        easing: isMobile ? 'ease-out' : 'ease-out-cubic',
         once: true,
         mirror: false,
-        offset: 120
+        offset: isMobile ? 50 : 120,
+        delay: 0
     });
 
     // Numerical Counter Animation Logic

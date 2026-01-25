@@ -114,13 +114,11 @@ h1 {
     font-size: clamp(2.8rem, 10vw, 5.5rem) !important;
     line-height: 1.1;
     color: var(--midnight-blue);
-    -webkit-text-stroke: 1px rgba(255, 255, 255, 0.4);
-    /* White Outline */
+    /* Clean shadow without stroke to avoid construction lines */
     text-shadow:
-        3px 3px 6px rgba(0, 0, 0, 0.2),
-        /* Subtle Depth Shadow */
-        0 0 15px rgba(255, 255, 255, 0.2);
-    /* Soft Glow backdrop */
+        2px 2px 4px rgba(0, 0, 0, 0.3),
+        4px 4px 8px rgba(0, 0, 0, 0.2),
+        0 0 20px rgba(255, 255, 255, 0.3);
 }
 
 
@@ -232,6 +230,14 @@ nav ul li a[role="button"]:hover {
     z-index: 0;
     opacity: 0.85;
     mix-blend-mode: multiply;
+}
+
+/* Focus on robot (left side) on mobile and tablet */
+@media (max-width: 1024px) {
+    .hero-bg-img {
+        background-position: 20% center;
+        background-attachment: scroll;
+    }
 }
 
 .hero-overlay {
@@ -779,9 +785,18 @@ article i {
 }
 
 .mobile-toggle i {
-    font-size: 1.25rem;
-    /* Reduced from 1.5rem */
-    color: var(--text-main);
+    font-size: 1.5rem;
+    color: #FFFFFF !important;
+    background: var(--primary-red) !important;
+    padding: 0.6rem 0.8rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.mobile-toggle i:hover {
+    background: #b71c1c !important;
+    transform: scale(1.05);
 }
 
 .mobile-menu-overlay {
@@ -809,42 +824,59 @@ article i {
 .mobile-menu-overlay ul {
     list-style: none;
     padding: 0;
-    text-align: center;
+    margin: 0;
+    width: 100%;
 }
 
 .mobile-menu-overlay li {
-    margin: 2rem 0;
+    margin: 0;
     opacity: 0;
-    transform: translateY(20px);
-    transition: all 0.4s ease;
+    transform: translateX(-20px);
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .mobile-menu-overlay.active li {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
 }
 
 .mobile-menu-overlay a {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--text-light);
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: #FFFFFF;
     text-decoration: none;
+    padding: 1.5rem 2rem;
+    transition: all 0.2s ease;
+    text-align: left;
 }
 
-.mobile-menu-overlay a:hover {
+.mobile-menu-overlay a:hover,
+.mobile-menu-overlay a:active {
+    background: rgba(229, 57, 53, 0.15);
     color: var(--primary-red);
+    padding-left: 2.5rem;
 }
 
 .close-menu-btn {
     position: absolute;
     top: 2rem;
     right: 2rem;
-    font-size: 1.5rem;
-    /* Reduced from 2.5rem/2rem */
-    color: var(--text-muted);
+    font-size: 2rem;
+    color: #FFFFFF !important;
+    background: var(--primary-red) !important;
     cursor: pointer;
-    background: none;
     border: none;
+    padding: 0.5rem 0.8rem;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+}
+
+.close-menu-btn:hover {
+    background: #b71c1c !important;
+    transform: scale(1.05);
 }
 
 /* Stagger animation for menu items */
