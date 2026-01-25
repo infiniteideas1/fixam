@@ -265,7 +265,7 @@ nav ul li a[role="button"]:hover {
     height: auto;
     display: block;
     /* No filters, purely the original image */
-    filter: contrast(1.3) saturate(1.5);
+    filter: contrast(1.3) saturate(1.5) brightness(0.85);
 }
 
 /* On very wide screens, prevent image from becoming too tall */
