@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (entry.isIntersecting) {
                 const counter = entry.target;
                 const target = +counter.getAttribute('data-target');
-                const duration = 0; // Instant
+                const duration = 2000; // 2 seconds animation
                 const startTime = performance.now();
 
                 function updateCounter(currentTime) {
@@ -29,8 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     counter.innerText = currentValue;
 
                     if (progress < 1) {
-                        // requestAnimationFrame(updateCounter);
-                        counter.innerText = target;
+                        requestAnimationFrame(updateCounter);
                     } else {
                         counter.innerText = target;
                     }
@@ -128,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
         particlesJS('particles-js', {
             "particles": {
                 "number": {
-                    "value": 80,
+                    "value": 150,
                     "density": {
                         "enable": true,
                         "value_area": 800

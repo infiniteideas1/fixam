@@ -135,8 +135,9 @@ h1 {
 
 h2 {
     font-size: 1.6rem;
-    border-left: 4px solid var(--primary-blue);
-    padding-left: 1rem;
+    border-left: none;
+    /* Removed blue stroke */
+    padding-left: 0;
     color: var(--midnight-blue);
 }
 
@@ -461,7 +462,7 @@ article i {
 
 .service-item {
     background: #FFFFFF;
-    border: 1px solid var(--primary-blue);
+    border: none;
     border-radius: 16px;
     padding: 1rem;
     text-align: center;
@@ -479,18 +480,19 @@ article i {
 
 .service-img-container {
     width: 100%;
-    aspect-ratio: 1;
+    /* Removed aspect-ratio to let image define shape */
     border-radius: 15px;
-    overflow: hidden;
+    overflow: visible;
     margin-bottom: 1rem;
     position: relative;
-    background: var(--primary-blue);
+    background: transparent;
 }
 
 .service-img-container img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: auto;
+    /* Removed object-fit to allow natural scaling */
+    display: block;
 }
 
 .service-item:hover .service-img-container img {
@@ -559,25 +561,121 @@ article i {
     /* Reduced space */
 }
 
+@keyframes wiggle {
+
+    0%,
+    100% {
+        transform: rotate(0deg);
+    }
+
+    10% {
+        transform: rotate(10deg);
+    }
+
+    20% {
+        transform: rotate(-10deg);
+    }
+
+    30% {
+        transform: rotate(6deg);
+    }
+
+    40% {
+        transform: rotate(-6deg);
+    }
+
+    50% {
+        transform: rotate(3deg);
+    }
+
+    60% {
+        transform: rotate(-3deg);
+    }
+
+    70% {
+        transform: rotate(0deg);
+    }
+}
+
 .fab-main {
-    width: 3.5rem !important;
-    height: 3.5rem !important;
-    border-radius: 4px !important;
-    background: var(--primary-blue);
-    color: var(--text-light);
-    border: 2px solid var(--primary-blue);
+    width: 4rem !important;
+    height: 4rem !important;
+    border-radius: 50% !important;
+    background: #4A90E2;
+    /* Lighter blue to match screenshot */
+    color: white;
+    border: none;
     font-size: 1.5rem;
     padding: 0 !important;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: wiggle 4s ease-in-out infinite;
+    /* Pause animation on hover */
+    transition: transform 0.3s ease;
 }
 
 .fab-main:hover {
-    background: var(--pure-white);
-    color: var(--primary-blue);
     transform: scale(1.1);
+    animation: none;
+    background: #357ABD;
+}
+
+.fab-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #FF0000;
+    color: white;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.fab-callout {
+    position: absolute;
+    left: 80px;
+    /* To the right of the button */
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    color: #333;
+    padding: 10px 20px;
+    border-radius: 30px;
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    font-family: serif;
+    font-size: 1.2rem;
+    pointer-events: none;
+    /* Let clicks pass through */
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+.fab-callout::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-right: 8px solid white;
+}
+
+/* Hide callout when menu is active/open if needed, or keep it */
+.fab-container.active .fab-callout {
+    opacity: 0;
 }
 
 .fab-options {
@@ -610,15 +708,15 @@ article i {
 }
 
 .fab-btn {
-    width: 3rem;
-    height: 3rem;
+    width: 3.5rem;
+    /* Increased container size slightly */
+    height: 3.5rem;
     border-radius: 10px;
-    /* Matching square aesthetic */
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.25rem;
-    /* Reduced icon size */
+    font-size: 1.8rem;
+    /* Increased icon size */
     color: white;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     position: relative;
@@ -646,15 +744,18 @@ article i {
 
 /* Unified FAB Colors */
 .bg-whatsapp {
-    background: var(--primary-blue) !important;
+    background: #25D366 !important;
+    /* WhatsApp Green */
 }
 
 .bg-telegram {
-    background: var(--primary-blue) !important;
+    background: #0088cc !important;
+    /* Telegram Blue */
 }
 
 .bg-email {
-    background: var(--primary-blue) !important;
+    background: #EA4335 !important;
+    /* Gmail Red */
 }
 
 .fab-item a:hover {

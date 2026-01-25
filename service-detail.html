@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Fixapathway</title>
+    <title>Service Detail - Fixapathway</title>
 
     <!-- Google Fonts: Outfit -->
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -15,8 +15,6 @@
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- AOS Animation Library REMOVED -->
-
     <!-- Custom Style -->
     <link rel="stylesheet" href="style.css">
 </head>
@@ -24,7 +22,7 @@
 <body>
 
     <!-- Navigation -->
-    <nav class="container-fluid" style="position: relative;">
+    <nav class="container-fluid internal-nav">
         <ul>
             <li>
                 <a href="/" class="brand-logo">
@@ -32,9 +30,9 @@
                 </a>
             </li>
         </ul>
-        <ul class="desktop-links">
+        <ul class="desktop-links internal-links">
             <li><a href="/">Home</a></li>
-            <li><a href="services">Services</a></li>
+            <li><a href="services" class="contrast">Services</a></li>
             <li><a href="about">About</a></li>
             <li><a href="contact" role="button">Contact</a></li>
         </ul>
@@ -43,48 +41,15 @@
         </ul>
     </nav>
 
-    <!-- Main Content -->
-    <main class="container" style="padding-top: 4rem;">
+    <header style="padding: 150px 1.5rem 2rem; text-align: center; background: transparent;">
+        <h2 id="service-hero-title"
+            style="color: var(--midnight-blue); border: none; padding: 0; margin: 0; font-weight: 800;">
+            Service Details</h2>
+    </header>
 
-        <hgroup style="text-align: center; margin-bottom: 4rem;">
-            <h1>Privacy Policy</h1>
-            <h2 style="color: var(--pure-white);">Last Updated: January 2026</h2>
-        </hgroup>
-
-        <section class="legal-content">
-            <article>
-                <h3>1. Introduction</h3>
-                <p>At Fixapathway, we prioritize the confidentiality and security of your digital identity. This Privacy
-                    Policy outlines how we collect, use, and protect your information when you use our cybersecurity and
-                    account recovery services.</p>
-
-                <h3>2. Information We Collect</h3>
-                <p>We may collect personal information such as your name, email address, phone number, and details
-                    regarding your compromised accounts solely for the purpose of recovery and security auditing. We do
-                    not store sensitive passwords once the service is complete.</p>
-
-                <h3>3. Use of Information</h3>
-                <p>Your information is used to:</p>
-                <ul>
-                    <li>Provide account recovery and security services.</li>
-                    <li>Communicate with you regarding your case.</li>
-                    <li>Improve our security protocols and services.</li>
-                </ul>
-
-                <h3>4. Data Protection</h3>
-                <p>We implement military-grade encryption and strict access controls to protect your data. We do not
-                    sell, trade, or rent your personal identification information to others.</p>
-
-                <h3>5. Third-Party Disclosure</h3>
-                <p>We do not share your information with third parties except as necessary to perform our services
-                    (e.g., contacting platform support on your behalf) or as required by law.</p>
-
-                <h3>6. Contact Us</h3>
-                <p>If you have any questions about this Privacy Policy, please contact us at <a
-                        href="mailto:fixapathway@gmail.com">fixapathway@gmail.com</a>.</p>
-            </article>
-        </section>
-
+    <!-- Main Content Container -->
+    <main class="container" id="service-detail-content" style="min-height: 50vh; padding-top: 0;">
+        <!-- JS will inject content here -->
     </main>
 
     <!-- Footer -->
@@ -142,10 +107,8 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- AOS Script -->
-
-    <!-- AOS Script REMOVED -->
     <script src="script.js"></script>
+    <script src="service-details.js"></script>
 </body>
 
 </html>
