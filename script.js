@@ -54,12 +54,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const icon = fabMain.querySelector('i');
             if (fabContainer.classList.contains('active')) {
-                icon.classList.remove('fa-comment-dots');
+                icon.classList.remove('fa-comments');
                 icon.classList.add('fa-times');
                 icon.style.transform = 'rotate(180deg)';
             } else {
                 icon.classList.remove('fa-times');
-                icon.classList.add('fa-comment-dots');
+                icon.classList.add('fa-comments');
                 icon.style.transform = 'rotate(0deg)';
             }
         });

@@ -643,6 +643,7 @@ article i {
 }
 
 .fab-callout {
+    display: none !important;
     position: absolute;
     left: 80px;
     /* To the right of the button */
@@ -870,7 +871,8 @@ article i {
     left: 0;
     width: 100%;
     height: 100vh;
-    background: var(--primary-blue);
+    background: #FFFFFF;
+    /* Simple white background */
     z-index: 10000;
     display: flex;
     flex-direction: column;
@@ -878,6 +880,7 @@ article i {
     justify-content: center;
     opacity: 0;
     pointer-events: none;
+    transition: opacity 0.3s ease;
 }
 
 .mobile-menu-overlay.active {
@@ -894,10 +897,13 @@ article i {
 }
 
 .mobile-menu-overlay li {
-    margin: 0;
+    margin: 1.5rem 0;
+    /* Vertical spacing */
     opacity: 0;
     transform: translateY(20px);
-    border-bottom: 2px solid #FFFFFF;
+    border: none;
+    /* Removed borders for simplicity */
+    transition: all 0.3s ease;
 }
 
 .mobile-menu-overlay.active li {
@@ -906,33 +912,34 @@ article i {
 }
 
 .mobile-menu-overlay a {
-    display: block;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #FFFFFF;
+    display: inline-block;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    /* Navy blue text */
     text-decoration: none;
-    padding: 1.5rem;
+    padding: 0.5rem;
     text-align: center;
 }
 
 .mobile-menu-overlay a:hover,
 .mobile-menu-overlay a:active {
-    background: #FFFFFF;
-    color: var(--primary-blue);
+    color: #4A90E2;
+    /* Subtle blue shift on hover */
+    background: transparent;
 }
 
 .close-menu-btn {
     position: absolute;
     top: 2rem;
     right: 2rem;
-    font-size: 2rem;
-    color: #FFFFFF !important;
-    background: var(--primary-blue) !important;
+    font-size: 2.5rem;
+    color: var(--primary-blue) !important;
+    background: transparent !important;
     cursor: pointer;
     border: none;
-    padding: 0.5rem 0.8rem;
-    border-radius: 6px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    padding: 0.5rem;
+    box-shadow: none;
 }
 
 .close-menu-btn:hover {
