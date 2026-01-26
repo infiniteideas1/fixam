@@ -43,6 +43,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     counters.forEach(counter => counterObserver.observe(counter));
 
+    // Scroll Reveal Animation Logic
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserverOptions = {
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+    const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target); // Only animate once
+            }
+        });
+    }, revealObserverOptions);
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
     // FAB Toggle Logic
     const fabMain = document.getElementById('fab-main');
     const fabContainer = document.querySelector('.fab-container');
