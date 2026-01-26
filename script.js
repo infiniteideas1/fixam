@@ -43,8 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     counters.forEach(counter => counterObserver.observe(counter));
 
-    // Scroll Reveal Animation Logic
-    const revealElements = document.querySelectorAll('.reveal');
+    // Reveal Animation Logic (Slide-in)
+    const revealElements = document.querySelectorAll('.reveal-left, .reveal-right');
     const revealObserverOptions = {
         threshold: 0.15,
         rootMargin: "0px 0px -50px 0px"
@@ -54,7 +54,7 @@ document.addEventListener('DOMContentLoaded', () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
-                observer.unobserve(entry.target); // Only animate once
+                observer.unobserve(entry.target);
             }
         });
     }, revealObserverOptions);

@@ -160,21 +160,21 @@ document.addEventListener('DOMContentLoaded', () => {
             const finalIconPath = encodeURI(service.icon);
 
             contentDiv.innerHTML = `
-                <div class="grid reveal reveal-up" style="margin-top: 0 !important;">
+                <div class="grid" style="margin-top: 0 !important;">
                     <div style="text-align: center; margin-bottom: 0.5rem;">
-                        <h2 class="reveal reveal-up" style="color: var(--midnight-blue); border: none; padding: 0; margin-bottom: 0.5rem; font-weight: 800;">${service.title}</h2>
-                        <img class="reveal reveal-up" src="${finalIconPath}" alt="${service.title}" style="width: 100%; height: auto; max-height: 800px; object-fit: contain; margin-bottom: 0.5rem;">
-                        <p class="reveal reveal-up" style="font-size: 1.25rem; max-width: 900px; margin: 0 auto; color: var(--midnight-blue); line-height: 1.6;">${service.description}</p>
+                        <h2 style="color: var(--midnight-blue); border: none; padding: 0; margin-bottom: 0.5rem; font-weight: 800;">${service.title}</h2>
+                        <img src="${finalIconPath}" alt="${service.title}" style="width: 100%; height: auto; max-height: 800px; object-fit: contain; margin-bottom: 0.5rem;">
+                        <p style="font-size: 1.25rem; max-width: 900px; margin: 0 auto; color: var(--midnight-blue); line-height: 1.6;">${service.description}</p>
                     </div>
                 </div>
                 <div class="grid" style="margin-top: 1rem;">
-                    <article class="reveal reveal-left">
+                    <article>
                         <h4 style="margin-bottom: 1.5rem; color: var(--primary-blue);">Key Features</h4>
                         <ul style="list-style: none; padding-left: 0; margin-bottom: 0;">
                             ${detailsList}
                         </ul>
                     </article>
-                    <article class="reveal reveal-right" style="background: var(--primary-blue) !important; color: white !important; display: flex; flex-direction: column; justify-content: center; text-align: center;">
+                    <article style="background: var(--primary-blue) !important; color: white !important; display: flex; flex-direction: column; justify-content: center; text-align: center;">
                         <h3 style="color: white; border-left: none;">Need Urgent Help?</h3>
                         <p style="color: rgba(255,255,255,0.9);">Our experts are ready to start your ${service.title} case immediately.</p>
                         <a href="contact" role="button" style="background: white; color: var(--primary-blue); border: none; font-weight: bold; margin-top: 1rem;">Contact Us Now</a>
